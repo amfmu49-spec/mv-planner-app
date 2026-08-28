@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
           style={{ fontSize: '0.9rem', padding: '10px 20px', borderRadius: '12px', cursor: 'pointer' }}
         >
           <Bookmark size={18} color="#a855f7" />
-          ブックマークれとを取得
+          ブックマークレットを取得
         </button>
 
         <span
@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
             letterSpacing: '0.5px',
           }}
         >
-          ver 1.2.5
+          ver 1.2.6
         </span>
       </div>
     </header>
