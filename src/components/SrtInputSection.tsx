@@ -67,10 +67,6 @@ export const SrtInputSection: React.FC<SrtInputSectionProps> = ({
         </div>
       </div>
 
-      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-        Sunoのブックマークレット等で抽出したSRTデータ（または.lrc形式）をそのまま下にペーストしてください。
-      </p>
-
       <textarea
         className="textarea-text"
         placeholder={`1\n00:00:05,000 --> 00:00:08,000\n歌詞テキスト\n\nまたは [00:05.00] 歌詞テキスト をここにペースト...`}

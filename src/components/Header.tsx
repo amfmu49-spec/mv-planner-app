@@ -19,29 +19,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '16px',
-        position: 'relative',
       }}
     >
-      {/* Top Badge */}
-      <div style={{ position: 'absolute', top: '16px', right: '20px' }}>
-        <span
-          style={{
-            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
-            color: '#c084fc',
-            border: '1px solid rgba(168, 85, 247, 0.4)',
-            borderRadius: '20px',
-            padding: '4px 12px',
-            fontSize: '0.78rem',
-            fontWeight: 700,
-            letterSpacing: '0.5px',
-          }}
-        >
-          ver 1.2.4
-        </span>
-      </div>
-
       {/* Hero Full-Width Logo Banner */}
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '6px 0' }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4px 0' }}>
         <img
           src={logoUrl}
           alt="MV-Planner"
@@ -58,15 +39,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
         />
       </div>
 
-      {/* Bookmarklet Button BELOW Logo */}
-      <button
-        onClick={onOpenBookmarklet}
-        className="btn btn-secondary"
-        style={{ fontSize: '0.92rem', padding: '10px 22px', borderRadius: '12px', cursor: 'pointer' }}
-      >
-        <Bookmark size={18} color="#a855f7" />
-        Suno SRT ブックマークレットを取得
-      </button>
+      {/* Bookmarklet Button & Version Badge Row BELOW Logo */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <button
+          onClick={onOpenBookmarklet}
+          className="btn btn-secondary"
+          style={{ fontSize: '0.9rem', padding: '10px 20px', borderRadius: '12px', cursor: 'pointer' }}
+        >
+          <Bookmark size={18} color="#a855f7" />
+          ブックマークれとを取得
+        </button>
+
+        <span
+          style={{
+            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
+            color: '#c084fc',
+            border: '1px solid rgba(168, 85, 247, 0.4)',
+            borderRadius: '20px',
+            padding: '5px 12px',
+            fontSize: '0.78rem',
+            fontWeight: 700,
+            letterSpacing: '0.5px',
+          }}
+        >
+          ver 1.2.5
+        </span>
+      </div>
     </header>
   );
 };

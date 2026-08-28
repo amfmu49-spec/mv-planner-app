@@ -24,14 +24,6 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({ settings, onCh
     onChange({ totalSongDuration: Math.max(5, newTotal), autoSongDuration: false });
   };
 
-  const DURATION_PRESETS = [
-    { label: '1分30秒', value: 90 },
-    { label: '2分00秒', value: 120 },
-    { label: '3分00秒', value: 180 },
-    { label: '3分30秒', value: 210 },
-    { label: '4分00秒', value: 240 },
-  ];
-
   return (
     <div className="glass-panel" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: '18px' }}>
       <h2 className="section-title" style={{ margin: 0 }}>
@@ -77,20 +69,6 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({ settings, onCh
           <Music size={16} color="#ec4899" />
           曲の総再生時間 (全尺)
         </label>
-
-        {/* Preset Chips */}
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
-          {DURATION_PRESETS.map((preset) => (
-            <button
-              key={preset.value}
-              type="button"
-              className={`btn-chip ${settings.totalSongDuration === preset.value ? 'active' : ''}`}
-              onClick={() => onChange({ totalSongDuration: preset.value, autoSongDuration: false })}
-            >
-              {preset.label}
-            </button>
-          ))}
-        </div>
 
         {/* Minutes and Seconds Input Fields */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
