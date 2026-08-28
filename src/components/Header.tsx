@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
               fontWeight: 700,
               letterSpacing: '0.5px'
             }}>
-              ver 1.2.0
+              ver 1.2.1
             </span>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>

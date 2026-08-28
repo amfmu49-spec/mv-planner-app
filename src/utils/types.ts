@@ -16,6 +16,7 @@ export interface CutSegment {
 }
 
 export type MVStylePresetId = 
+  | 'none'
   | 'cyberpunk-anime' 
   | 'cinematic-realism' 
   | 'retro-80s-citypop' 

@@ -2,6 +2,13 @@ import { MVStylePreset, VideoAIPreset } from './types';
 
 export const MV_STYLE_PRESETS: MVStylePreset[] = [
   {
+    id: 'none',
+    name: '指定なし (AIにおまかせ / 任意)',
+    emoji: '🪄',
+    description: '曲調や歌詞の雰囲気に合わせてAIが最適な世界観を自由提案',
+    promptGuidance: '曲の歌詞・メロディ・雰囲気に最も合致する最適なテーマ・世界観をAI（あなた）が自発的に解釈して全カット演出を作成してください',
+  },
+  {
     id: 'cyberpunk-anime',
     name: '近未来サイバーパンク・アニメ',
     emoji: '🌃',

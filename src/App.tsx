@@ -49,7 +49,7 @@ export function App() {
     autoSongDuration: true,
     songTitle: '',
     artistName: '',
-    mvStyle: 'cyberpunk-anime',
+    mvStyle: 'none',
     videoAI: 'kling-ai',
     customConceptNote: '',
   });

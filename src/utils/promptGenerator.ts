@@ -25,6 +25,11 @@ export function generateChappyPrompt(
     ? `\n■ ユーザーからの追加要望・コンセプト補足:\n${settings.customConceptNote.trim()}\n`
     : '';
 
+  const isThemeSpecified = settings.mvStyle && settings.mvStyle !== 'none';
+  const themeSectionText = isThemeSpecified
+    ? `・映像世界観 / テーマ: ${styleObj.name} (${styleObj.emoji})\n・世界観の方向性: ${styleObj.promptGuidance}`
+    : `・映像世界観 / テーマ: 指定なし（歌詞のストーリーや楽曲の感情曲線・メロディに合わせてAIが最も映える世界観を演出提案）`;
+
   return `あなたは世界最高峰のMVディレクターであり、同時に各種動画生成AI（Kling AI, Runway Gen-3, Luma, MiniMax, Sora等）のプロンプトエンジニアです。
 以下の楽曲構成・歌詞タイムライン（1カット＝${settings.clipDuration}秒単位）に基づき、クオリティが高く曲の世界観を引き立てるMVの全カット構成案と、動画生成AI用プロンプトを作成してください。
 
@@ -35,8 +40,7 @@ export function generateChappyPrompt(
 ・曲の総再生時間: ${settings.totalSongDuration}秒 (${Math.floor(settings.totalSongDuration / 60)}分${settings.totalSongDuration % 60}秒)
 ・1カットの動画生成秒数: ${settings.clipDuration}秒
 ・総カット数: 全${totalCuts}カット
-・映像世界観 / テーマ: ${styleObj.name} (${styleObj.emoji})
-・世界観の方向性: ${styleObj.promptGuidance}
+${themeSectionText}
 ${customNote}
 ==================================================
 📜 全${totalCuts}カットの歌詞タイムライン（${settings.clipDuration}秒刻み）

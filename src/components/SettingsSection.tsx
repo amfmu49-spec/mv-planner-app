@@ -130,7 +130,7 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({ settings, onCh
       <div className="form-group" style={{ margin: 0 }}>
         <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Palette size={16} color="#a855f7" />
-          MVのテーマ・世界観
+          MVのテーマ・世界観 (任意)
         </label>
         <select
           className="select-input"
