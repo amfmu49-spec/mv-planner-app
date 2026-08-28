@@ -55,6 +55,6 @@ export interface MVPlannerSettings {
   songTitle: string;        // Optional song title
   artistName: string;       // Optional artist name
   mvStyle: MVStylePresetId;  // Visual theme / concept
-  videoAI: VideoAIPresetId;  // Target AI video model
+  videoAI?: VideoAIPresetId; // Optional target AI video model
   customConceptNote: string;// Extra instructions for Chappy
 }

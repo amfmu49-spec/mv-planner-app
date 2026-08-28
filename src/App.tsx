@@ -54,6 +54,20 @@ export function App() {
     customConceptNote: '',
   });
 
+  // Check for auto-imported SRT parameter from Suno bookmarklet
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const srtParam = urlParams.get('srt');
+    if (srtParam) {
+      setRawSrtText(srtParam);
+      setToastMessage('🎉 Sunoから取り込んだ歌詞を自動ペーストしました！');
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+      setTimeout(() => setToastMessage(null), 5000);
+    }
+  }, []);
+
   // Parse SRT or LRC
   const parsedData = useMemo(() => {
     return parseSrtOrLrc(rawSrtText);

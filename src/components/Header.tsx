@@ -22,10 +22,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
           <Film size={28} color="#fff" />
         </div>
         <div>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, background: 'linear-gradient(to right, #fff, #cbd5e1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            MV Director Assistant
-          </h1>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, background: 'linear-gradient(to right, #fff, #cbd5e1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0 }}>
+              MV Planner
+            </h1>
+            <span style={{
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
+              color: '#c084fc',
+              border: '1px solid rgba(168, 85, 247, 0.4)',
+              borderRadius: '20px',
+              padding: '2px 10px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.5px'
+            }}>
+              ver 1.2.0
+            </span>
+          </div>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
             Suno SRT歌詞 ➔ AI MV構成＆カット割りプロンプト自動生成システム
           </p>
         </div>

@@ -1,12 +1,11 @@
 import { MVPlannerSettings, CutSegment } from './types';
-import { MV_STYLE_PRESETS, VIDEO_AI_PRESETS } from './presets';
+import { MV_STYLE_PRESETS } from './presets';
 
 export function generateChappyPrompt(
   settings: MVPlannerSettings,
   cuts: CutSegment[]
 ): string {
   const styleObj = MV_STYLE_PRESETS.find((s) => s.id === settings.mvStyle) || MV_STYLE_PRESETS[0];
-  const aiObj = VIDEO_AI_PRESETS.find((a) => a.id === settings.videoAI) || VIDEO_AI_PRESETS[0];
 
   const totalCuts = cuts.length;
   const songTitle = settings.songTitle ? `「${settings.songTitle}」` : '（未設定）';
@@ -26,7 +25,7 @@ export function generateChappyPrompt(
     ? `\n■ ユーザーからの追加要望・コンセプト補足:\n${settings.customConceptNote.trim()}\n`
     : '';
 
-  return `あなたは世界最高峰のMVディレクターであり、同時に映像生成AI（${aiObj.name} 等）のプロンプトエンジニアです。
+  return `あなたは世界最高峰のMVディレクターであり、同時に各種動画生成AI（Kling AI, Runway Gen-3, Luma, MiniMax, Sora等）のプロンプトエンジニアです。
 以下の楽曲構成・歌詞タイムライン（1カット＝${settings.clipDuration}秒単位）に基づき、クオリティが高く曲の世界観を引き立てるMVの全カット構成案と、動画生成AI用プロンプトを作成してください。
 
 ==================================================
@@ -38,8 +37,6 @@ export function generateChappyPrompt(
 ・総カット数: 全${totalCuts}カット
 ・映像世界観 / テーマ: ${styleObj.name} (${styleObj.emoji})
 ・世界観の方向性: ${styleObj.promptGuidance}
-・使用予定の動画生成AI: ${aiObj.name}
-・プロンプトスタイル指標: ${aiObj.promptStyle}
 ${customNote}
 ==================================================
 📜 全${totalCuts}カットの歌詞タイムライン（${settings.clipDuration}秒刻み）
@@ -57,7 +54,7 @@ ${timelineText}
 2. **該当歌詞 / 楽曲パート**
 3. **映像演出・ストーリー展開** (シーンの具体的な状況、キャラクターの動き、背景、光や色の演出を日本語で詳細に説明)
 4. **カメラワーク & アングル** (例: ズームイン、ローアングル固定、左から右への高速パン、ドローン空撮風)
-5. **${aiObj.name}用 動画生成プロンプト (英語)** (AI動画生成ツールにそのまま入力できる高品質な英文プロンプト。被写体、背景、ライティング、カメラ動作を含めて記述)
+5. **動画生成AI用プロンプト (英語)** (各種AI動画生成ツールにそのまま入力できる高品質な英文プロンプト。被写体、背景、ライティング、カメラ動作を含めて記述)
 
 ※MV全体の視覚的一貫性（カラーパレットや登場人物・モチーフの統一感）を考慮してご提案をお願いします！`;
 }

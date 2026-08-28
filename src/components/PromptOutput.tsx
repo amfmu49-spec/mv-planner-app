@@ -18,6 +18,20 @@ export const PromptOutput: React.FC<PromptOutputProps> = ({ promptText }) => {
     }
   };
 
+  const handleOpenChatGPT = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.href = 'chatgpt://';
+    const timer = setTimeout(() => {
+      window.open('https://chatgpt.com/', '_blank');
+    }, 1200);
+
+    const onBlur = () => {
+      clearTimeout(timer);
+      window.removeEventListener('blur', onBlur);
+    };
+    window.addEventListener('blur', onBlur);
+  };
+
   return (
     <div className="glass-panel">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
@@ -33,13 +47,12 @@ export const PromptOutput: React.FC<PromptOutputProps> = ({ promptText }) => {
           </button>
 
           <a
-            href="https://chatgpt.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="chatgpt://"
+            onClick={handleOpenChatGPT}
             className="btn btn-primary"
             style={{ padding: '8px 16px', fontSize: '0.88rem', textDecoration: 'none' }}
           >
-            ChatGPTを開く <ExternalLink size={14} />
+            📱 ChatGPTアプリを開く <ExternalLink size={14} />
           </a>
         </div>
       </div>

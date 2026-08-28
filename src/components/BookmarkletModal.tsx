@@ -12,7 +12,8 @@ export const BookmarkletModal: React.FC<BookmarkletModalProps> = ({ isOpen, onCl
 
   if (!isOpen) return null;
 
-  const bookmarkletCode = getBookmarkletCode();
+  const appUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname : '';
+  const bookmarkletCode = getBookmarkletCode(appUrl);
 
   const handleCopy = async () => {
     try {
@@ -55,9 +56,9 @@ export const BookmarkletModal: React.FC<BookmarkletModalProps> = ({ isOpen, onCl
             <HelpCircle size={16} color="#6366f1" /> 使い方ステップ
           </h4>
           <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '6px', color: 'var(--text-muted)' }}>
-            <li>下の「ブックマークレットコードをコピー」ボタンを押します。</li>
-            <li>ブラウザのブックマークバーに新規登録し、URL欄にコピーしたコードを貼り付けます。</li>
-            <li>Sunoの曲詳細ページ（<code style={{ color: '#ec4899' }}>suno.com/song/...</code>）でブックマークを実行すると、即座にSRTがクリップボードにコピーされます！</li>
+            <li>「ブックマークレットコードをコピー」を押します。</li>
+            <li>ブラウザのブックマークバーに登録し、URL欄にコピーしたコードを貼り付けます。</li>
+            <li>Sunoの楽曲ページ（<code style={{ color: '#ec4899' }}>suno.com/song/...</code>）でブックマークを実行！表示された「閉じる」をタップすると自動的にアプリへ戻り、歌詞が入力されます。</li>
           </ol>
         </div>
 
