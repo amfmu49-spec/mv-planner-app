@@ -5,27 +5,25 @@ interface HeaderProps {
   onOpenBookmarklet: () => void;
 }
 
+const logoUrl = `${import.meta.env.BASE_URL}logo.jpg`;
+
 export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
   return (
     <header className="glass-panel" style={{ marginBottom: '24px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <div style={{
-          width: '52px',
-          height: '52px',
-          borderRadius: '14px',
-          background: 'linear-gradient(135deg, #6366f1 0%, #ec4899 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 6px 20px rgba(99, 102, 241, 0.4)'
-        }}>
-          <Film size={28} color="#fff" />
-        </div>
+        <img
+          src={logoUrl}
+          alt="MV-Planner"
+          style={{
+            height: '46px',
+            borderRadius: '8px',
+            objectFit: 'contain',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.6)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}
+        />
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, background: 'linear-gradient(to right, #fff, #cbd5e1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0 }}>
-              MV Planner
-            </h1>
             <span style={{
               background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
               color: '#c084fc',
@@ -36,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
               fontWeight: 700,
               letterSpacing: '0.5px'
             }}>
-              ver 1.2.1
+              ver 1.2.2
             </span>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
