@@ -14,14 +14,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
       className="glass-panel"
       style={{
         marginBottom: '24px',
-        padding: '20px 24px',
+        padding: '24px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '14px',
+        alignItems: 'center',
+        gap: '16px',
+        position: 'relative',
       }}
     >
-      {/* Top Action & Badge Row */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', flexWrap: 'wrap', gap: '10px' }}>
+      {/* Top Badge */}
+      <div style={{ position: 'absolute', top: '16px', right: '20px' }}>
         <span
           style={{
             background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)',
@@ -34,20 +36,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
             letterSpacing: '0.5px',
           }}
         >
-          ver 1.2.3
+          ver 1.2.4
         </span>
-
-        <button
-          onClick={onOpenBookmarklet}
-          className="btn btn-secondary"
-          style={{ fontSize: '0.88rem', padding: '8px 16px' }}
-        >
-          <Bookmark size={16} color="#a855f7" />
-          Suno SRT ブックマークレットを取得
-        </button>
       </div>
 
-      {/* Prominent Full-Width Logo Banner */}
+      {/* Hero Full-Width Logo Banner */}
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '6px 0' }}>
         <img
           src={logoUrl}
@@ -64,6 +57,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
           }}
         />
       </div>
+
+      {/* Bookmarklet Button BELOW Logo */}
+      <button
+        onClick={onOpenBookmarklet}
+        className="btn btn-secondary"
+        style={{ fontSize: '0.92rem', padding: '10px 22px', borderRadius: '12px', cursor: 'pointer' }}
+      >
+        <Bookmark size={18} color="#a855f7" />
+        Suno SRT ブックマークレットを取得
+      </button>
     </header>
   );
 };
