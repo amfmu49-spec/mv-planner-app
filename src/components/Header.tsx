@@ -5,7 +5,8 @@ interface HeaderProps {
   onOpenBookmarklet: () => void;
 }
 
-const logoUrl = `${import.meta.env.BASE_URL}logo.jpg`;
+const baseUrl = (import.meta as any).env?.BASE_URL || '/';
+const logoUrl = `${baseUrl}logo.jpg`;
 
 export const Header: React.FC<HeaderProps> = ({ onOpenBookmarklet }) => {
   return (
